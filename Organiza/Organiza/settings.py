@@ -25,7 +25,7 @@ SECRET_KEY = '4dxki7$2keb7aa!2_uv8)3f1c-qi@g&5a_$+llu8s$s)b39xv3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'organizacao.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_org',
+    'app_usuario',
+
 ]
 
 MIDDLEWARE = [
@@ -104,6 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
+AUTH_USER_MODEL = 'app_usuario.User'
+LOGIN_URL = '/'
+
 LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
@@ -122,7 +127,7 @@ STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/organizacao/Organiza/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/organizacao/Organiza/static'
-STATIC_URL = '/static/'
+# STATIC_ROOT = u'/home/organizacao/Organiza/static'
+# STATIC_URL = '/static/'
