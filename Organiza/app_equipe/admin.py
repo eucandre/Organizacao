@@ -1,3 +1,7 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import *
+admin.site.register(Lideres)
+admin.site.register(Promotores)
+admin.site.register(Equipe)
+admin.site.register(Jornada)
+admin.site.register(Dias)

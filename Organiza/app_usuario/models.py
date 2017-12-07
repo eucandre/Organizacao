@@ -10,7 +10,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.conf import settings
 from app_perfil.models import *
-from app_jornada.models import *
 
 PERFIL = ((u'Administrador do Sistema','Administrador do Sistema'),(u'Lider da Equipe','Lider da Equipe'),
           (u'Promotor de Vendas','Promotor de Vendas'))
@@ -58,7 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     telphone = models.CharField(_('telefone'), max_length=10)
     cpf = models.CharField(_('cpf'),max_length=11)
     profile = models.CharField(max_length=150, choices=PERFIL)
-    # jornada = models.ForeignKey(Jornada, blank=True)
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin site.'))
     is_active = models.BooleanField(_('active'), default=True,
