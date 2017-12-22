@@ -11,8 +11,8 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.conf import settings
 from app_perfil.models import *
 
-PERFIL = ((u'Administrador do Sistema','Administrador do Sistema'),(u'Lider da Equipe','Lider da Equipe'),
-          (u'Promotor de Vendas','Promotor de Vendas'))
+
+PROPIEDADE = ((u'Empresa', 'Empresa'), (u'Colaborador','Colaborador'), (u'Terceiros', 'Terceiros'))
 
 class UserManager(BaseUserManager):
 
@@ -56,7 +56,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), max_length=255, unique=True)
     telphone = models.CharField(_('telefone'), max_length=10)
     cpf = models.CharField(_('cpf'),max_length=11)
-    profile = models.CharField(max_length=150, choices=PERFIL)
+    birt_day = models.DateField(_('nascmimento'), default=timezone.now)
+    office = models.CharField(max_length=150)
+    property_telphone = models.CharField(max_length=150,choices=PROPIEDADE)
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin site.'))
     is_active = models.BooleanField(_('active'), default=True,
@@ -82,3 +84,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def email_user(self, subject, message, from_email=None):
         send_mail(subject, message, from_email, [self.email])
+

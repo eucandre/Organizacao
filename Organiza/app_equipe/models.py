@@ -65,7 +65,7 @@ class Jornada(models.Model):
     Esta jornada de trabalho irá redigir o colaborador.
     '''
     nome = models.CharField(max_length=150)
-    jornada_equipe=models.ForeignKey(Equipe)
+    jornada_equipe=models.ForeignKey(User)
     dias_jornada =models.ManyToManyField(Dias)
     periodo = models.CharField(choices=PERIODO, max_length=150)
     de = models.TimeField()
