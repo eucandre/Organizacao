@@ -44,21 +44,21 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(_('username'), max_length=15, unique=True,
-        help_text=_('Required. 15 characters or fewer. Letters, \
-                    numbers and @/./+/-/_ characters'),
+        help_text=_('Obrigatorio. 15 caracteres ou menos. letras, \
+                    numeros e estes caracteres @/./+/-/_'),
         validators=[
                     validators.RegexValidator(
                                             re.compile('^[\w.@+-]+$'),
-                                            _('Enter a valid username.'),
-                                            _('invalid'))])
-    first_name = models.CharField(_('first name'), max_length=30)
-    last_name = models.CharField(_('last name'), max_length=30)
-    email = models.EmailField(_('email address'), max_length=255, unique=True)
+                                            _('Use um nome de usuario valido.'),
+                                            _('Invalido'))])
+    first_name = models.CharField(_('Primeiro Nome'), max_length=30)
+    last_name = models.CharField(_('Ultimo Nome'), max_length=30)
+    email = models.EmailField(_('Endereco de email'), max_length=255, unique=True)
     telphone = models.CharField(_('telefone'), max_length=10)
-    cpf = models.CharField(_('cpf'),max_length=11)
-    birt_day = models.DateField(_('nascmimento'), default=timezone.now)
-    office = models.CharField(max_length=150)
-    property_telphone = models.CharField(max_length=150,choices=PROPIEDADE)
+    cpf = models.CharField(_('CPF'),max_length=11)
+    birt_day = models.DateField(_('Nascmimento'), default=timezone.now)
+    office = models.CharField(_('Cargo'),max_length=150)
+    property_telphone = models.CharField(_('Propriedade do telefone'),max_length=150,choices=PROPIEDADE)
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin site.'))
     is_active = models.BooleanField(_('active'), default=True,
