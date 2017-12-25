@@ -1,0 +1,26 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	
+	{% for usuario in usuarios.object_list %}
+    
+    <a href="/lista_usuarios/{{usuario.id}}">{{ usuario.username|upper }}</a>
+    <br />
+    
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if usuarios.has_previous %}
+            <a href="?page={{ usuarios.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ usuarios.number }} de {{ usuarios.paginator.num_pages }}.
+        </span>
+
+        {% if usuarios.has_next %}
+            <a href="?page={{ usuarios.next_page_number }}">próxima</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

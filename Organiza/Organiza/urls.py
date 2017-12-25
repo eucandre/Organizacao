@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', apresentacao),
     url(r'^CriaUsuario',Cria_usuario),
+    url(r'^lista_usuarios',lista_usuarios),
+    url(r'^item_usuario/(?P<nr_item>\d+)/$', detalha_usuario),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
