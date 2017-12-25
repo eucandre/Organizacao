@@ -13,7 +13,7 @@ def Cria_usuario(request):
 
 def lista_usuarios(request):
 	usuarios = User.objects.all()
-	paginacao_usuarios = Paginator(usuarios,2)
+	paginacao_usuarios = Paginator(usuarios,5)
 
 	try:
 		page = int(request.GET.get('page', '1'))

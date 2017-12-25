@@ -1,9 +1,18 @@
 {% extends "base2.html" %}
 {% block conteudo %}
 	
-	{% for usuario in usuarios.object_list %}
+	{% for usuario in usuarios.object_list %}	
     
-    <a href="/lista_usuarios/{{usuario.id}}">{{ usuario.username|upper }}</a>
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-block">
+	        <a href="/item_usuario/{{usuario.id}}" class="btn btn-primary">{{ usuario.username|upper }}</a> <small>{{usuario.email}}</small>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
     <br />
     
 {% endfor %}
