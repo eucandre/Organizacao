@@ -11,14 +11,14 @@ class FormSegmento(forms.ModelForm):
 class FormCliente(forms.ModelForm):
 	nome_fantasia = forms.CharField(label="Nome Fantasia",max_length = 150, widget=forms.TextInput(attrs={"class":"form-control"}))		
 	cpf_cnpj = forms.CharField(label="CPF/CNPJ",max_length=23, widget=forms.TextInput(attrs={"class":"form-control"}))
-	porte = forms.CharField(label="Porte da empresa",max_length=8, choices=PORTE, widget=forms.Select(attrs={"class":"form-control"}))
+	porte = forms.ChoiceField(label="Porte da empresa", choices=PORTE, widget=forms.Select(attrs={"class":"form-control"}))
 	segmento = forms.ModelChoiceField(label="Segmento", queryset=Segmento.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
-	email = forms.EmailField(label="Email")
+	email = forms.EmailField(label="Email", widget=forms.TextInput(attrs={'class':'form-control'}))
 	contato = forms.CharField(label="Quem contactar na empresa",max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	cargo_contato = forms.CharField(label="Cargo do contato",max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	endereco = forms.CharField(label="Endereco",max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
-	imagem_loja = forms.ImageField(label="Imagem da Loja")
-	observacao = forms.TextField(label="Observacao")
+	# imagem_loja = forms.ImageField(label="Imagem da Loja")
+	observacao = forms.CharField(label="Observacao",max_length=300, widget=forms.Textarea(attrs={"class":"form-control"}))
 	colaborador = forms.ModelChoiceField(label="Colaborador",queryset=User.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
 
 	class Meta:

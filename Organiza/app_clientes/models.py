@@ -23,7 +23,7 @@ class Cliente(models.Model):
 	contato = models.CharField(max_length=150)
 	cargo_contato = models.CharField(max_length=150)
 	endereco = models.CharField(max_length=150)
-	imagem_loja = models.ImageField(upload_to = 'documents/%Y/%m/%d')
+	imagem_loja = models.ImageField(upload_to='documents/%Y/%m/%d')
 	observacao = models.TextField()
 	colaborador = models.ForeignKey(User)
 

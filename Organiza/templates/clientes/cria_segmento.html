@@ -2,6 +2,7 @@
 {% block conteudo %}
 	<form method="post" action="">
 		<div class="col-md-10 col-sm-10">
+			{% csrf_token %}
 			{{form.nome.label_tag}}
 			{{form.nome}}
 		</div>	
