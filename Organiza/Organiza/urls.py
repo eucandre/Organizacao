@@ -7,7 +7,7 @@ from django.conf import settings
 from app_base.views import *
 from app_usuario.views import *
 from app_clientes.views import *
-
+from app_equipe.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', apresentacao),
@@ -23,4 +23,8 @@ urlpatterns = [
     url(r'^CriaGrupo',Cria_Grupo),
     url(r'^lista_grupos', lista_grupo),
     url(r'^item_grupo/(?P<nr_item>\d+)/$', detalha_grupo),
+    url(r'^CriaDia',Cria_Dia),
+    url(r'^Crialideres',Cria_lideres),
+    url(r'^Criapromotores',Cria_promotores),
+    url(r'^Criaequipe',Cria_equipe),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
