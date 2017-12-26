@@ -20,4 +20,7 @@ urlpatterns = [
     url(r'^Criasegmento', Cria_segmento),
     url(r'^lista_segmentos', lista_segmento),
     url(r'^item_segmento/(?P<nr_item>\d+)/$', detalha_segmento),
+    url(r'^CriaGrupo',Cria_Grupo),
+    url(r'^lista_grupos', lista_grupo),
+    url(r'^item_grupo/(?P<nr_item>\d+)/$', detalha_grupo),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -29,4 +29,10 @@ class FormCliente(forms.ModelForm):
 class FormGrupoClientes(forms.ModelForm):
 	nome_grupo = forms.CharField(label="Nome do Grupo",max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	clientes = forms.ModelMultipleChoiceField(label="Clientes",queryset=Cliente.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
- 
+
+class FormGrupo(forms.ModelForm):
+	nome_grupo = forms.CharField(label="Nome do Grupo",max_length = 150, widget=forms.TextInput(attrs={"class":"form-control"}))
+	clientes = forms.ModelMultipleChoiceField(label="Clientes",queryset=Cliente.objects.all() ,widget=forms.SelectMultiple(attrs={"class":"form-control"}))
+	class Meta:
+		model = Grupo_Clientes
+		fields = ('nome_grupo', 'clientes')

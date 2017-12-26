@@ -63,3 +63,32 @@ def detalha_cliente(request, nr_item):
 	return render(request, "clientes/item_clientes.html", {'item': item})
 
 
+def Cria_Grupo(request):
+	if request.method == 'POST':
+		form = FormGrupo(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			messages.success(request, 'Cliente Salvo!')
+	else:
+		form = FormGrupo()
+	return render(request,"clientes/Cria_grupo.html",{"form":form})
+
+def lista_grupo(request):
+	grupo = Grupo_Clientes.objects.all()
+	paginacao_grupo = Paginator(grupo,5)
+
+	try:
+		page = int(request.GET.get('page', '1'))
+		lista = paginacao_grupo.page(page)
+	except (EmptyPage, InvalidPage):
+		lista = paginator.page(paginator.num_pages)	
+
+	return render(request,'clientes/lista_grupos.html', {"grupos":lista})
+
+
+def detalha_grupo(request, nr_item):
+	try:
+		item = Grupo_Clientes.objects.get(pk=nr_item)
+	except:
+		raise Http404('Sem Registro!')
+	return render(request, "clientes/item_grupos.html", {'item': item})
