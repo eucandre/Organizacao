@@ -37,3 +37,15 @@ class FormEquipe(forms.ModelForm):
 	class Meta:
 		model = Equipe
 		fields =('nome', 'lideres', 'promotores')
+
+class FormJornada(forms.ModelForm):
+	nome = forms.CharField(label='Nome',max_length = 150, widget=forms.TextInput(attrs={"class":"form-control"}))
+	jornada_equipe  = forms.ModelChoiceField(label="Jornada da Equipe",queryset = User.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))
+	dias_jornada 	= forms.ModelMultipleChoiceField(label="Dias de Jornada de Trabalho", queryset=Dias.objects.all(), widget=forms.SelectMultiple(attrs={"class":"form-control"}))
+	periodo = forms.ChoiceField(label="Periodo de Trabalho",choices=PERIODO, widget=forms.Select(attrs={"class":"form-control"}))
+	de = forms.TimeField(label="Inicia em", widget=forms.TextInput(attrs={"type":"time", "class":"form-control"}))
+	ate = forms.TimeField(label="Termina em", widget=forms.TextInput(attrs={"type":"time", "class":"form-control"}))
+	
+	class Meta:
+		model = Jornada
+		fields = ('nome','jornada_equipe','dias_jornada','periodo','de','ate')

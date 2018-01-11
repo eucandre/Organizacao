@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'app_equipe',
     'app_empresa',
     'app_clientes',
-
+    # 'mapwidgets',
+    # "geoposition",
+    # 'easy_maps',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +65,32 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Organiza.wsgi.application'
 
+# MAP_WIDGETS = {
+#     "GooglePointFieldWidget": (
+#         ("zoom", 15),
+#         ("mapCenterLocationName", "london"),
+#         ("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'uk'}}),
+#         ("markerFitZoom", 12),
+#     ),
+#     "GOOGLE_MAP_API_KEY": "AIzaSyDiFg_fDtCIkggRQwbE1jR_Tt1oGRW59bw"
+# }
+EASY_MAPS_GOOGLE_MAPS_API_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
+EASY_MAPS_CENTER = (-41.3, 32)
 
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyDiFg_fDtCIkggRQwbE1jR_Tt1oGRW59bw"
+
+
+
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 3,
+    'maxZoom': 15,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move'
+}
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -113,7 +140,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.

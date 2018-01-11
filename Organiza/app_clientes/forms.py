@@ -2,6 +2,8 @@ from django import forms
 
 from .models import *
 
+
+
 class FormSegmento(forms.ModelForm):
 	nome = forms.CharField(label="Nome do Segmento", max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	class Meta:
@@ -25,7 +27,7 @@ class FormCliente(forms.ModelForm):
 		model = Cliente
 		fields = ('nome_fantasia','cpf_cnpj','porte','segmento','email','contato','cargo_contato','endereco','imagem_loja','observacao',
 			'colaborador')
-
+			
 class FormGrupoClientes(forms.ModelForm):
 	nome_grupo = forms.CharField(label="Nome do Grupo",max_length=150, widget=forms.TextInput(attrs={"class":"form-control"}))
 	clientes = forms.ModelMultipleChoiceField(label="Clientes",queryset=Cliente.objects.all(), widget=forms.Select(attrs={"class":"form-control"}))

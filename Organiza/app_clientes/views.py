@@ -3,6 +3,7 @@ from .forms import *
 from django.contrib import messages
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
+
 def Cria_segmento(request):
 	if request.method == 'POST':
 		form = FormSegmento(request.POST)

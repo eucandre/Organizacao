@@ -26,9 +26,10 @@ urlpatterns = [
     url(r'^item_grupo/(?P<nr_item>\d+)/$', detalha_grupo),
     url(r'^CriaDia',Cria_Dia),
     url(r'^Crialideres',Cria_lideres),
+    url(r'^lista_lideres', lista_lideres),
     url(r'^Criapromotores',Cria_promotores),
     url(r'^Criaequipe',Cria_equipe),
-
+    url(r'^CriaJornada',Cria_jornada),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
