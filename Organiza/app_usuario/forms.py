@@ -14,7 +14,8 @@ class FormUser(forms.ModelForm):
 	office = forms.CharField(label="Cargo", max_length=150,widget=forms.TextInput(attrs={"class":"form-control"}))
 	birt_day = forms.DateField(label="Data de Nascimento",widget=forms.TextInput(attrs={"type":"date", "class":"form-control"}))
 	date_joined = forms.DateField(label="Data de Registro",widget=forms.TextInput(attrs={"type":"date", "class":"form-control"}))
+	password = forms.CharField(label="Senha", max_length=10,widget=forms.PasswordInput(attrs={"class":"form-control"}))
 	class Meta:
 		model = User
 		fields = ('username','first_name','last_name','cpf','email','telphone','property_telphone','office','birt_day','is_staff',
-			'is_active','date_joined')
+			'is_active','date_joined','password')
