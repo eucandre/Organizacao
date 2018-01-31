@@ -9,6 +9,7 @@ from app_usuario.views import *
 from app_clientes.views import *
 from app_equipe.views import *
 from django.contrib.auth import views as auth_views
+from chat.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', apresentacao),
@@ -32,4 +33,5 @@ urlpatterns = [
     url(r'^CriaJornada',Cria_jornada),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
+    url(r'^chat',chat),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

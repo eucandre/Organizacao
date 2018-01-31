@@ -57,9 +57,23 @@ $(document).on("google_point_map_widget:marker_delete", function (e, lat, lng, l
     console.log(mapWrapID); // map widget wrapper element ID
 })
  </script> 
+
+<script language="JavaScript">
+function abrir(URL) {
+ 
+  var width = 500;
+  var height = 300;
+ 
+  var left = 99;
+  var top = 99;
+ 
+  window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=yes, resizable=yes, fullscreen=no');
+ 
+}
+</script>
+
 </head>
 <body>
-
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
@@ -166,7 +180,7 @@ $(document).on("google_point_map_widget:marker_delete", function (e, lat, lng, l
     </div>
   </div>
 </div>
-
+<a href="javascript:abrir('/chat/');">Clique Aqui</a>
 <footer class="container-fluid">
   <p>Footer Text</p>
 </footer>

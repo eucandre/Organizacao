@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'app_equipe',
     'app_empresa',
     'app_clientes',
-    # 'mapwidgets',
+    'chat',
     # "geoposition",
     # 'easy_maps',
 ]
