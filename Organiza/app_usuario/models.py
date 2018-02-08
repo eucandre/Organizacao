@@ -58,6 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     cpf = models.CharField(_('CPF'),max_length=11)
     birt_day = models.DateField(_('Nascmimento'), default=timezone.now)
     office = models.CharField(_('Cargo'),max_length=150)
+    # profile = models.Foreignkey(_('Perfil do Colaborador'),Perfil)
     property_telphone = models.CharField(_('Propriedade do telefone'),max_length=150,choices=PROPIEDADE)
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin site.'))
