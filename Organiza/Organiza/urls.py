@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^$', apresentacao),
     url(r'^CriaUsuario',Cria_usuario),
     url(r'^lista_usuarios',lista_usuarios),
+    url(r'^edita_usuario/(?P<nr_item>\d+)/$', edita_usuario),
     url(r'^item_usuario/(?P<nr_item>\d+)/$', detalha_usuario),
     url(r'^CriaCliente', Cria_Cliente),
     url(r'^lista_clientes',lista_cliente),

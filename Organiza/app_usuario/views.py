@@ -33,3 +33,12 @@ def detalha_usuario(request, nr_item):
 		raise Http404('Sem Registro!')
 	return render(request, "usuarios/item_usuario.html", {'item': item})
 	
+def edita_usuario(request, nr_item):
+	item = User.objects.get(pk=nr_item)
+	if request.method == "POST":
+		form = FormUser(request.POST)
+		if form.is_valid():
+			form.save()
+	else:
+		form = FormUser(instance=item)
+	return render(request, "usuarios/cadastro_usuario.html",{"form":form})
