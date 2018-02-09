@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from .forms import *
 from .models import *
-from .filter import *
+from app_usuario.filter import *
 
 def Cria_usuario(request):
 	if request.method == "POST":

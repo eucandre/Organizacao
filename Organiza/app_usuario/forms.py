@@ -19,3 +19,4 @@ class FormUser(forms.ModelForm):
 		model = User
 		fields = ('username','first_name','last_name','cpf','email','telphone','property_telphone','office','birt_day','is_staff',
 			'is_active','date_joined','password')
+		   

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'app_clientes',
     'chat',
     'django_filters',
+    
     # "geoposition",
     # 'easy_maps',
 ]
